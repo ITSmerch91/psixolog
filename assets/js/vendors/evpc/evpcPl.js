@@ -1,0 +1,5 @@
+var EVPC_PL=EVPC_PL||{};
+
+EVPC_PL.Playlist=function(c,f,b,d){var a=this;this.VID=f;this.options=b;this.videoid;a.videos_array=[];var e=-1;c(b.videos).each(function(){e+=1;a.videos_array.push({id:e,title:this.title,videoType:this.videoType,video_path_mp4:this.mp4,enable_mp4_download:this.enable_mp4_download,info_text:this.info});a.nowPlayingThumbnail=c("<div />");a.nowPlayingThumbnail.addClass("evpCnowPlayingThumbnail");a.nowPlayingThumbnail.text(a.options.nowPlayingTooltipTxt);a.nowPlayingThumbnail.hide()});a.videoid=0;if("HTML5"==
+
+b.videos[0].videoType||"HTML5 (self-hosted)"==b.videoType)d.canPlayType&&d.canPlayType("video/mp4").replace(/no/,"")&&(a.video_path=a.videos_array[0].video_path_mp4),a.VID.load(a.video_path,"0");a.totalWidth=b.evpCWidth;a.totalHeight=b.evpCHeight};EVPC_PL.Playlist.prototype={};
